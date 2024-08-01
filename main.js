@@ -144,11 +144,21 @@ const renderProducts = (arrayProductos) => {
 };
 
 renderProducts(productos);
-
+// [{}{}{}]
 const agregarAlCarrito = (id) => {
+  // encontrar el producto al cual le dimos click
   let producto = productos.find((elemento) => elemento.id === id);
-  // {...producto, quantity: 1}
-  carrito.push(producto);
+  let productoEnElCarrito = carrito.find((elemento) => elemento.id === id); // {} - undefined
+
+  if (productoEnElCarrito) {
+    // {} - undefined
+    // entra cuando ya esta en el carrito
+    productoEnElCarrito.quantity += 1;
+  } else {
+    // entra cuando todavia no esta
+    carrito.push({ ...producto, quantity: 1 });
+  }
+
   localStorage.setItem("carrito", JSON.stringify(carrito));
 };
 
