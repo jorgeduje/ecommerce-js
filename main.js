@@ -154,9 +154,25 @@ const agregarAlCarrito = (id) => {
     // {} - undefined
     // entra cuando ya esta en el carrito
     productoEnElCarrito.quantity += 1;
+    Swal.fire({
+      title: "Su producto se aumento en 1",
+      icon: "success",
+      position: "center",
+      // showConfirmButton: true,
+      confirmButtonText: "aceptar",
+      timer: 5000,
+    });
   } else {
     // entra cuando todavia no esta
     carrito.push({ ...producto, quantity: 1 });
+    Swal.fire({
+      title: "se agrego exitosamente",
+      icon: "success",
+      position: "center",
+      // showConfirmButton: true,
+      confirmButtonText: "aceptar",
+      timer: 5000,
+    });
   }
 
   localStorage.setItem("carrito", JSON.stringify(carrito));

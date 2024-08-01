@@ -43,9 +43,15 @@ const restarCantidad = (id) => {
     productoEncontrado.quantity -= 1;
     localStorage.setItem("carrito", JSON.stringify(carrito));
     renderProducts(carrito);
+    Toastify({
+      text: "Funciona",
+      gravity: "bottom",
+      position: "right",
+      backgroundColor: "peru",
+      close: true,
+    }).showToast();
   } else if (productoEncontrado && productoEncontrado.quantity === 1) {
-    // eliminarDelCarrito(productoEncontrado.id);
-    alert("el minimo es 1");
+    eliminarDelCarrito(productoEncontrado.id);
   }
 };
 
