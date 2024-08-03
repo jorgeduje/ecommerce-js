@@ -30,6 +30,12 @@ input[type="text"] {
   border: 1px solid #000;
   width: 300px;
 }
+input[type="email"] {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #000;
+  width: 300px;
+}
 
 #products-container {
   display: flex;
@@ -64,4 +70,20 @@ input[type="text"] {
   display: flex;
   justify-content: center;
   gap: 10px;
+}
+
+#contact-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+#contact-form button {
+  width: 200px;
+  padding: 10px 20px;
+  background-color: steelblue;
+  color: white;
+  border: none;
+  outline: none;
 }
