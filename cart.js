@@ -32,9 +32,28 @@ const renderProducts = (arrayProductos) => {
 renderProducts(carrito);
 // [ {1} {5} {2}] ---> [{1} {2}] / !== 5
 const eliminarDelCarrito = (id) => {
-  carrito = carrito.filter((elemento) => elemento.id !== id);
-  localStorage.setItem("carrito", JSON.stringify(carrito));
-  renderProducts(carrito);
+  Swal.fire({
+    title: "Seguro quieres eliminar?",
+    showDenyButton: true,
+    confirmButtonText: "Si, eliminar",
+    denyButtonText: `No, no eliminar`,
+  }).then((res) => {
+    console.log(res);
+    if (res.isConfirmed) {
+      carrito = carrito.filter((elemento) => elemento.id !== id);
+      localStorage.setItem("carrito", JSON.stringify(carrito));
+      renderProducts(carrito);
+      Swal.fire({
+        title: "eliminado!",
+        icon: "info",
+      });
+    } else if (res.isDenied) {
+      Swal.fire({
+        title: "No se elimina",
+        icon: "info",
+      });
+    }
+  });
 };
 
 const restarCantidad = (id) => {
