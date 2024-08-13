@@ -87,3 +87,8 @@ input[type="email"] {
   border: none;
   outline: none;
 }
+.image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}

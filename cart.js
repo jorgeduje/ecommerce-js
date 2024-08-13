@@ -10,7 +10,7 @@ const renderProducts = (arrayProductos) => {
   arrayProductos.forEach((producto) => {
     let productCard = document.createElement("div");
     productCard.className = "producto";
-    productCard.innerHTML = `<img src=${producto.image} />
+    productCard.innerHTML = `<img src=${producto.image} class="image" />
           <h3>${producto.title}</h3>
           <p>${producto.description}</p>
           <p class="price">$${producto.price}</p>
